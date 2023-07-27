@@ -1,0 +1,103 @@
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+	font-family: 'REM', sans-serif;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	height: 100vh;
+	width: 100vw;
+}
+
+h1 {
+	font-family: 'Raleway', sans-serif;
+}
+
+.form {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 24px;
+	width: 100%;
+	font-size: 14px;
+}
+
+.form > input {
+	width: 80%;
+	padding: 8px;
+	border-radius: 4px;
+	border: 2px solid black;
+	outline: none;
+}
+
+.form > button {
+	transition: all ease .25s;
+	padding: 8px 16px;
+	background-color: darkgreen;
+	color: white;
+	border-radius: 4px;
+	border: 2px solid darkgreen;
+	cursor: pointer;
+}
+
+.form > button:hover {
+	background-color: transparent;
+	color: darkgreen;
+}
+
+.message {
+	min-height: 48px;
+}
+
+.message[data-status="none"] {
+	visibility: hidden;
+}
+
+.message[data-status="error"] {
+	color: red;
+}
+
+.message[data-status="success"] {
+	color: green;
+}
+
+.result-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100px;
+}
+
+
+.result-wrapper[data-visible="false"],
+.result-wrapper[data-visible="false"] *
+{
+	visibility: hidden;
+}
+
+.result {
+	margin-inline: 12px;
+}
+
+.clip-button {
+	transition: all ease .25s;
+	padding: 8px 16px;
+	color: grey;
+	background-color: transparent;
+	border-radius: 4px;
+	border: 2px solid grey;
+	cursor: pointer;
+}
+
+.clip-button:hover {
+	color: white;
+	background-color: grey;
+}
+
