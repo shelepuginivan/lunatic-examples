@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+	head
+		link(rel='preconnect' href='https://fonts.googleapis.com')
+		link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+		link(href='https://fonts.googleapis.com/css2?family=REM:wght@200&family=Raleway:wght@300&display=swap' rel='stylesheet')
+		link(rel="stylesheet" href="/style.css")
+		title Url Shortener
+	body
+		main
+			h1 Url Shortener
+
+			form(class="form" id="form")
+				input(
+					type="text"
+					name="url"
+					id="url"
+					required="true"
+					placeholder="Enter your URL..."
+				)
+
+				button(class="submit") Get short URL!
+			
+			p(class="message" id="message" data-status="none")
+			div(
+				class="result-wrapper"
+				id="result-wrapper"
+				data-visible="false"
+			)
+				p(class="result" id="result")
+				button(
+					id="clip-button"
+					class="clip-button"
+				) Copy!
+
+		script(src="/index.js")
