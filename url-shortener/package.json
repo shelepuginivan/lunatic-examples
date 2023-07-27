@@ -10,7 +10,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@shelepuginivan/lunatic": "^1.0.1",
+		"@shelepuginivan/lunatic": "^1.0.2",
 		"nanoid": "^4.0.2",
 		"pug": "^3.0.2",
 		"redis": "^4.6.7"
