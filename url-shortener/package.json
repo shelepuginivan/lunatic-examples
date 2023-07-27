@@ -1,0 +1,21 @@
+{
+	"name": "url-shortener",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"lint": "eslint src --fix"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@shelepuginivan/lunatic": "^1.0.1"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^6.2.0",
+		"eslint": "^8.45.0",
+		"eslint-plugin-simple-import-sort": "^10.0.0",
+		"typescript": "^5.1.6"
+	}
+}
