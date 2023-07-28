@@ -8,6 +8,7 @@ form.onsubmit = async (event) => {
 	event.preventDefault();
 
 	const url = event.target.url.value;
+
 	try {
 		const res = await fetch('/', {
 			method: 'POST',
@@ -27,7 +28,6 @@ form.onsubmit = async (event) => {
 	} catch {
 		message.innerText = 'An error occurred! Please try later';
 		message.dataset.status = 'error';
-		return;
 	}
 }
 
