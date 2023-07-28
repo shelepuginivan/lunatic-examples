@@ -1,0 +1,7 @@
+@import 'variables';
+
+.gradient-font {
+	background: linear-gradient(90deg, $yellow, $lightgreen);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
