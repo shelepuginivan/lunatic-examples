@@ -16,7 +16,7 @@ config({
 });
 
 const HOST = process.env.HOST || 'http://localhost:8000'
-const PORT = process.env.PORT || 8000
+const PORT = Number(process.env.PORT) || 8000
 
 app
 	.renderer(render)
