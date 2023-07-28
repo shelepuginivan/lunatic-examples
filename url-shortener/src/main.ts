@@ -13,8 +13,8 @@ config({
 });
 
 app
-	.use(bodyParser)
 	.renderer(render)
+	.use(bodyParser)
 	.get('/', (_req, res) => res.renderFile(join(__dirname, '..', 'views', 'index.pug')))
 	.get('/:id', async (req, res, next) => {
 		const id = req.params.id;
@@ -47,10 +47,10 @@ app
 	.use('/', serveStatic(join(__dirname, '..', 'static')));
 
 const start = async () => {
+	const port = Number(process.env.PORT) || 8000;
+
 	await redisClient.connect();
 	console.log('Redis successfully connected');
-
-	const port = Number(process.env.PORT) || 8000;
 
 	app.listen(port);
 	console.log(`Server started on port ${port}...`);
