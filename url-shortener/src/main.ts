@@ -23,7 +23,7 @@ app
 			return await res.status(400).json({ message: 'id невалидный' });
 		}
 
-		const originalUrl = await redisClient.get(id as any);
+		const originalUrl = await redisClient.get(id);
 
 		if (!originalUrl) {
 			return next();
@@ -35,11 +35,11 @@ app
 		const url = (req.body as Record<'url', string>).url;
 		let id = nanoid(7);
 
-		while (await redisClient.get(id as any)) {
-			id = nanoid(7);
-		}
+			while (await redisClient.get(id)) {
+				id = nanoid(7);
+			}
 
-		await redisClient.set(id as any, url as any);
+			await redisClient.set(id, url);
 
 		const shortUrl = `${process.env.HOST}/${id}`;
 		await res.status(200).json({ url: shortUrl });
