@@ -16,6 +16,7 @@ export default {
 		}
 	},
 	modules: [
+		'@hebilicious/vue-query-nuxt',
 		'@nuxtjs/google-fonts',
 		'nuxt-icon'
 	],
