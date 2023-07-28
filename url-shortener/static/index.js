@@ -21,7 +21,7 @@ form.onsubmit = async (event) => {
 
 		const body = await res.json();
 		const shortUrl = body.url;
-		
+
 		resultWrapper.dataset.visible = "true";
 		result.innerText = `Your URL: ${shortUrl}`;
 		clipButton.onclick = () => copyToClipboard(shortUrl);
@@ -43,7 +43,7 @@ const copyToClipboard = async (text) => {
 		message.innerText = 'Copied to clipboard!'
 		message.dataset.status = 'success';
 	} catch {
-		errorMessage.innerText = 'Your browser does not support this!';
+		message.innerText = 'Your browser does not support this!';
 		message.dataset.status = 'error';
 	}
 }
