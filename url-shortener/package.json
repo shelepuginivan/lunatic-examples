@@ -4,7 +4,9 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"lint": "eslint src --fix"
+		"build": "tsc",
+		"lint": "eslint src --fix",
+		"start": "node dist/main.js"
 	},
 	"keywords": [],
 	"author": "",
@@ -14,7 +16,8 @@
 		"dotenv": "^16.3.1",
 		"nanoid": "^3.3.6",
 		"pug": "^3.0.2",
-		"redis": "^4.6.7"
+		"redis": "^4.6.7",
+		"zod": "^3.21.4"
 	},
 	"devDependencies": {
 		"@types/dotenv": "^8.2.0",
