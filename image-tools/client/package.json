@@ -1,0 +1,20 @@
+{
+	"name": "nuxt-app",
+	"private": true,
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"lint": "eslint ./**/*.vue --fix",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare"
+	},
+	"devDependencies": {
+		"@nuxt/devtools": "latest",
+		"@nuxtjs/eslint-module": "^4.1.0",
+		"@types/node": "^18.17.0",
+		"eslint": "^8.46.0",
+		"eslint-plugin-vue": "^9.15.1",
+		"nuxt": "^3.6.5"
+	}
+}
