@@ -15,6 +15,9 @@ config({
 	path: join(__dirname, '..', '.env')
 });
 
+const HOST = process.env.HOST || 'http://localhost:8000'
+const PORT = process.env.PORT || 8000
+
 app
 	.renderer(render)
 	.use(bodyParser)
@@ -46,7 +49,7 @@ app
 
 			await redisClient.set(id, url);
 
-			const shortUrl = `${process.env.HOST}/${id}`;
+			const shortUrl = `${HOST}/${id}`;
 			await res.status(200).json({ url: shortUrl });
 		} catch (error) {
 			if (error instanceof ZodError) {
@@ -58,13 +61,11 @@ app
 	.use('/', serveStatic(join(__dirname, '..', 'static')));
 
 const start = async () => {
-	const port = Number(process.env.PORT) || 8000;
-
 	await redisClient.connect();
 	console.log('Redis successfully connected');
 
-	app.listen(port);
-	console.log(`Server started on port ${port}...`);
+	app.listen(PORT);
+	console.log(`Server started on port ${PORT}...`);
 };
 
 start().catch(console.error);
