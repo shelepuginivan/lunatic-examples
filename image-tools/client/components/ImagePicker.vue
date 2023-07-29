@@ -7,7 +7,7 @@
 			@dragover.prevent
 			@dragenter.prevent
 		>
-			<span>Выберите изображение...</span>
+			<span>Please choose an image...</span>
 		</label>
 		<input
 			id='image-picker'
@@ -80,8 +80,8 @@ const setFileInputValue = (file: File | undefined) => {
 <style scoped lang='scss'>
 .image-picker {
 	position: relative;
-	width: 200px;
-	height: 200px;
+	width: 300px;
+	height: 300px;
 	border: 1px solid $lightgray;
 	overflow: hidden;
 	border-radius: 8px;
@@ -91,11 +91,9 @@ const setFileInputValue = (file: File | undefined) => {
 	}
 }
 
-
-
 .label {
-	width: 200px;
-	height: 200px;
+	width: 300px;
+	height: 300px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -113,8 +111,8 @@ const setFileInputValue = (file: File | undefined) => {
 	top: 0;
 	left: 0;
 	z-index: $z-1;
-	width: 200px;
-	height: 200px;
+	width: 300px;
+	height: 300px;
 	object-fit: contain;
 	object-position: center;
 	background-color: $black;
