@@ -1,7 +1,12 @@
 <template>
 	<div class='wrapper'>
 		<NavHeader/>
-		<h1 class='page-header'>Compress Image</h1>
+		<h1 
+			class='page-header'
+			:data-status='status'
+		>
+			{{ headerText }}
+		</h1>
 		<main class='main'>
 			<form
 				class='compress-form'
@@ -33,7 +38,7 @@
 </template>
 
 <script setup lang='ts'>
-const { mutate: uploadImage, data, error, status } = useCompressImageMutation();
+const { mutate: uploadImage, data, status } = useCompressImageMutation();
 
 const onSubmit = async (event: SubmitEvent) => {
 	const form = event.target as HTMLFormElement;
@@ -42,13 +47,26 @@ const onSubmit = async (event: SubmitEvent) => {
 	await uploadImage(body);
 }
 
+const headerText = computed(() => {
+	switch (status.value) {
+		case 'loading':
+			return 'Please wait...';
+		case 'success':
+			return 'Success!';
+		case 'error':
+			return 'Something went wrong...';
+		default:
+			return 'Compress Image';
+	}
+});
+
 const imageUrl = computed(() => {
 	if (!data) {
 		return null;
 	}
 	
 	return URL.createObjectURL(data.value);
-})
+});
 
 </script>
 
@@ -59,6 +77,14 @@ const imageUrl = computed(() => {
 
 .page-header {
 	padding-left: 48px;
+
+	&[data-status='success'] {
+		@extend .gradient-font;
+	}
+
+	&[data-status='error'] {
+		color: $red;
+	}
 }
 
 .main {
