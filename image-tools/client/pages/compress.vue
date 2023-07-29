@@ -1,6 +1,7 @@
 <template>
 	<div class='wrapper'>
 		<NavHeader/>
+		<h1 class='page-header'>Compress Image</h1>
 		<main class='main'>
 			<form
 				class='compress-form'
@@ -14,11 +15,18 @@
 				<ButtonPrimary>Submit</ButtonPrimary>
 			</form>
 			<div class='result'>
-				<img
+				<div
+					class='success'
 					v-if='data'
-					:src='imageUrl'
-					alt='preview'
 				>
+					<ImagePreview
+						v-if='data'
+						:src='imageUrl'
+					/>
+					<LinkButton download :href='imageUrl'>
+						Download image
+					</LinkButton>
+				</div>
 			</div>
 		</main>
 	</div>
@@ -49,16 +57,30 @@ const imageUrl = computed(() => {
 	padding-top: 60px;
 }
 
+.page-header {
+	padding-left: 48px;
+}
+
 .main {
 	display: flex;
 	padding: 24px;
 }
 
-.compress-form {
+.compress-form,
+.result {
 	display: flex;
 	flex-direction: column;
 	width: 50%;
-	padding: 16px 24px;
-	gap: 24px;
+	padding: 10px 24px;
+	gap: 10px;
 }
+
+.success {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	gap: 12px;
+}
+
 </style>
