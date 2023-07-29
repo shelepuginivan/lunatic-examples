@@ -12,7 +12,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@shelepuginivan/lunatic": "^1.0.3",
+		"@shelepuginivan/lunatic": "^1.0.4",
 		"mime": "^3.0.0",
 		"sharp": "^0.32.4"
 	},
