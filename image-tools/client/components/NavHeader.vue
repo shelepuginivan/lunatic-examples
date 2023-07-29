@@ -16,7 +16,10 @@
 	left: 0;
 	top: 0;
 	height: 60px;
+	width: 100%;
 	padding-inline: 24px;
+	background-color: rgba($black, .6);
+	backdrop-filter: blur(6px);
 }
 
 .icon-logo {
