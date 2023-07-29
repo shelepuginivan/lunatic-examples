@@ -15,7 +15,7 @@
 	cursor: pointer;
 	border-radius: 4px;
 
-	&: hover {
+	&:hover {
 		background-color: $gray;
 	}
 }
