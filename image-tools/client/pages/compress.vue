@@ -6,12 +6,12 @@
 				class='compress-form'
 				@submit.prevent='onSubmit'
 			>
-				<input type='file' name='image'>
+				<ImagePicker name='image'/>
 				<TextInput
 					name='quality'
 					placeholder='Quality %'
 				/>
-				<button>Submit</button>
+				<ButtonPrimary>Submit</ButtonPrimary>
 			</form>
 			<div class='result'>
 				<img
@@ -58,7 +58,7 @@ const imageUrl = computed(() => {
 	display: flex;
 	flex-direction: column;
 	width: 50%;
-	padding: 24px;
+	padding: 16px 24px;
 	gap: 24px;
 }
 </style>
