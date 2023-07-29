@@ -1,6 +1,5 @@
 <template>
 	<div class='wrapper'>
-		<NavHeader/>
 		<h1 
 			class='page-header'
 			:data-status='status'
