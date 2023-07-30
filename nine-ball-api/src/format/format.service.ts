@@ -47,18 +47,23 @@ export class FormatServiceImpl implements FormatService {
 		const svgBuffer = await readFile(pathToSVG);
 		const svg = svgBuffer.toString();
 
+		const multilineText = answer
+			.split('. ')
+			.map((sentense) => `<tspan x="50%" dy="40">${sentense}</tspan>`)
+			.join('');
+
 		return `<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
 			${svg}
 			<text
 				x="50%"
-				y="475"
+				y="320"
 				fill="#699bd6"
-				font-size="40"
+				font-size="20"
 				font-weight="bold"
 				font-family="sans-serif"
 				text-anchor="middle"
 			>
-				${answer}
+				${multilineText}
 			</text>
 		</svg>`;
 	}
