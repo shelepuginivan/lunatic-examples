@@ -1,3 +1,7 @@
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+import * as sharp from 'sharp';
+
 import { FormatService } from './format';
 
 export class FormatServiceImpl implements FormatService {
@@ -5,8 +9,28 @@ export class FormatServiceImpl implements FormatService {
 		return `<p>Cirno says: <q>${answer}</q>.</p>`;
 	}
 
-	image(answer: string): Buffer {
-		return Buffer.from(answer + 'mock');
+	async image(answer: string): Promise<Buffer> {
+		const pathToImage = join(__dirname, '..', 'assets', 'cirno.png');
+		const baseImage = await readFile(pathToImage);
+		const image = sharp(baseImage);
+
+		const svgText = Buffer.from(`
+			<svg width="1024" height="1024">
+				<text
+					x="50%"
+					y="140"
+					fill="#699bd6"
+					font-size="80"
+					font-width="bold"
+					font-family="sans-serif"
+					text-anchor="middle"
+				>
+					${answer}
+				</text>
+			</svg>
+		`);
+
+		return image.composite([{ input: svgText }]).toBuffer();
 	}
 
 	json(answer: string): { answer: string } {
