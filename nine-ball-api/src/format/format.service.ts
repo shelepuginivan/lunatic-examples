@@ -10,7 +10,7 @@ export class FormatServiceImpl implements FormatService {
 	}
 
 	async image(answer: string): Promise<Buffer> {
-		const pathToImage = join(__dirname, '..', 'assets', 'cirno.png');
+		const pathToImage = join(__dirname, '..', '..', 'assets', 'cirno.png');
 		const baseImage = await readFile(pathToImage);
 		const image = sharp(baseImage);
 
