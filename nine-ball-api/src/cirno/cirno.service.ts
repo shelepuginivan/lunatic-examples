@@ -1,6 +1,3 @@
-import random, { Random, RNG } from 'random';
-import * as seedrandom from 'seedrandom';
-
 import { CirnoService } from './cirno';
 
 type AnswerConfidense = 'yes' | 'somewhat' | 'neutral' | 'no';
@@ -13,26 +10,32 @@ export class CirnoServiceImpl implements CirnoService {
 	constructor() {
 		this.answerOptions = {
 			en: {
-				yes: [],
-				somewhat: [],
-				neutral: [],
-				no: []
+				yes: ['Absolutely!'],
+				somewhat: ['Maybe lol'],
+				neutral: ['Idk'],
+				no: ['Nope']
 			}
 		}
 	}
 
-	generateAnswer(question: string, locale = 'en'): string {
+	generateAnswer(_question: string, locale = 'en'): string {
 		locale = locale in this.answerOptions ? locale : 'en';
 
-		const rng = new Random(seedrandom(question) as unknown as RNG);
-		const confidense = rng.choice([
+		const confidense = this.choice([
 			'yes',
 			'somewhat',
 			'neutral',
 			'no'
 		]) as AnswerConfidense;
+
+
 		const answerArray = this.answerOptions[locale][confidense];
 
-		return random.choice(answerArray) ?? answerArray[0];
+		return this.choice(answerArray);
+	}
+
+	private choice<T>(arr: T[]): T {
+		const index = Math.floor(Math.random() * arr.length);
+		return arr[index];
 	}
 }
