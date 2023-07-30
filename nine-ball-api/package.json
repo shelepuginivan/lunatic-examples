@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@shelepuginivan/lunatic": "^1.0.4",
+    "random": "^4.1.0",
     "sharp": "^0.32.4"
   }
 }
