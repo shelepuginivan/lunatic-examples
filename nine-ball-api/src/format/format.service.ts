@@ -21,7 +21,7 @@ export class FormatServiceImpl implements FormatService {
 					y="140"
 					fill="#699bd6"
 					font-size="80"
-					font-width="bold"
+					font-weight="bold"
 					font-family="sans-serif"
 					text-anchor="middle"
 				>
@@ -37,10 +37,23 @@ export class FormatServiceImpl implements FormatService {
 		return { answer };
 	}
 
-	svg(answer: string): string {
-		return `<svg>
-			<text>
-				mock ${answer}
+	async svg(answer: string): Promise<string> {
+		const pathToSVG = join(__dirname, '..', '..', 'assets', 'cirno.svg');
+		const svgBuffer = await readFile(pathToSVG);
+		const svg = svgBuffer.toString();
+
+		return `<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+			${svg}
+			<text
+				x="50%"
+				y="475"
+				fill="#699bd6"
+				font-size="40"
+				font-weight="bold"
+				font-family="sans-serif"
+				text-anchor="middle"
+			>
+				${answer}
 			</text>
 		</svg>`;
 	}
