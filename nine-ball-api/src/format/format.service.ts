@@ -14,18 +14,23 @@ export class FormatServiceImpl implements FormatService {
 		const baseImage = await readFile(pathToImage);
 		const image = sharp(baseImage);
 
+		const multilineText = answer
+			.split('. ')
+			.map((sentense) => `<tspan x="50%" dy="40">${sentense}</tspan>`)
+			.join('');
+
 		const svgText = Buffer.from(`
 			<svg width="1024" height="1024">
 				<text
 					x="50%"
-					y="140"
+					y="60"
 					fill="#699bd6"
-					font-size="80"
+					font-size="36"
 					font-weight="bold"
 					font-family="sans-serif"
 					text-anchor="middle"
 				>
-					${answer}
+					${multilineText}
 				</text>
 			</svg>
 		`);
