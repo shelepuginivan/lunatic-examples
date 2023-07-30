@@ -1,10 +1,10 @@
 import { CirnoService } from './cirno';
 
-type AnswerConfidense = 'yes' | 'somewhat' | 'neutral' | 'no';
+type AnswerType = 'yes' | 'somewhat' | 'neutral' | 'no' | 'empty';
 
 export class CirnoServiceImpl implements CirnoService {
 	private readonly answerOptions: {
-		[locale: string]: Record<AnswerConfidense, string[]>
+		[locale: string]: Record<AnswerType, string[]>
 	};
 
 	constructor() {
@@ -13,7 +13,8 @@ export class CirnoServiceImpl implements CirnoService {
 				yes: ['Absolutely!'],
 				somewhat: ['Maybe lol'],
 				neutral: ['Idk'],
-				no: ['Nope']
+				no: ['Nope'],
+				empty: ['']
 			},
 			ru: {
 				yes: [
@@ -36,20 +37,30 @@ export class CirnoServiceImpl implements CirnoService {
 					'В алгебре не разбираюсь',
 					'Не утруждай нас этой безнравственностью. ДА, я знаю такие умные слова, я Всезнающая',
 					'Точно нет. Иначе появится второй Чирнобыль'
+				],
+				empty: [
+					'Морковный пирог точно не по... Ты что, ещё не задал вопрос? Задавай быстрее!!',
+					'Не трать попросту силы Чирно Великолепной.',
+					'Ты не слушал мою речь. Я Всесильная Чирно, а не Чирно-телепат!!!'
 				]
 			}
 		}
 	}
 
-	generateAnswer(_question: string, locale = 'en'): string {
+	generateAnswer(question: string, locale = 'en'): string {
 		locale = locale in this.answerOptions ? locale : 'en';
+
+		if (question.trim() === '') {
+			return this.choice(this.answerOptions[locale].empty);
+		}
+
 
 		const confidense = this.choice([
 			'yes',
 			'somewhat',
 			'neutral',
 			'no'
-		]) as AnswerConfidense;
+		]) as AnswerType;
 
 
 		const answerArray = this.answerOptions[locale][confidense];
