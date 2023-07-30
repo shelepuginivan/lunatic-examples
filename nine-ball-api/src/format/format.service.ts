@@ -68,8 +68,12 @@ export class FormatServiceImpl implements FormatService {
 		</svg>`;
 	}
 
-	text(answer: string): string {
-		return `Cirno says: ${answer}`;
+	async text(answer: string): Promise<string> {
+		const asciiCirnoPath = join(__dirname, '..', '..', 'assets', 'cirno.txt');
+		const asciiCirnoBuffer = await readFile(asciiCirnoPath);
+		const asciiCirno = asciiCirnoBuffer.toString();
+
+		return `${asciiCirno}\n${answer}`;
 	}
 
 	xml(answer: string): string {
