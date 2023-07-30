@@ -38,14 +38,14 @@ export class ApiControllerImpl implements ApiController {
 		return res.status(200).json(body);
 	}
 
-	svg(req: Request, res: Response) {
+	async svg(req: Request, res: Response) {
 		const { q, hl } = req.query;
 
 		if (typeof q !== 'string') {
 			return res.status(400).json({ message: 'invalid data' });
 		}
 
-		const svgImage = this.apiService.svg(q, String(hl));
+		const svgImage = await this.apiService.svg(q, String(hl));
 		return res.status(200).send(svgImage, 'image/svg+xml');
 	}
 
