@@ -67,7 +67,7 @@ export class ApiControllerImpl implements ApiController {
 			return res.status(400).json({ message: 'invalid data' });
 		}
 
-		const xml = this.apiService.html(q, String(hl));
+		const xml = this.apiService.xml(q, String(hl));
 		return res.status(200).send(xml, 'application/xml');
 	}
 }
