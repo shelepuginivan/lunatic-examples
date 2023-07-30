@@ -5,7 +5,7 @@ export interface ApiService {
 	image(question: string, locale: string): Promise<Buffer>
 	json(question: string, locale: string): { answer: string }
 	svg(question: string, locale: string): Promise<string>
-	text(question: string, locale: string): string
+	text(question: string, locale: string): Promise<string>
 	xml(question: string, locale: string): string
 }
 

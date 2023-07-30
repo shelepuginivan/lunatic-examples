@@ -44,7 +44,7 @@ export class ApiServiceImpl implements ApiService {
 		return this.formatService.svg(answer);
 	}
 
-	text(question: string, locale = 'en'): string {
+	text(question: string, locale = 'en'): Promise<string> {
 		const answer = this.cirnoService.generateAnswer(
 			question,
 			locale

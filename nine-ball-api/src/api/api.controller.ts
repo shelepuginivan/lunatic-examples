@@ -49,15 +49,15 @@ export class ApiControllerImpl implements ApiController {
 		return res.status(200).send(svgImage, 'image/svg+xml');
 	}
 
-	text(req: Request, res: Response) {
+	async text(req: Request, res: Response) {
 		const { q, hl } = req.query;
 
 		if (typeof q !== 'string') {
 			return res.status(400).json({ message: 'invalid data' });
 		}
 
-		const text = this.apiService.text(q, String(hl));
-		return res.status(200).text(text);
+		const text = await this.apiService.text(q, String(hl));
+		return res.status(200).send(text, 'text/plain; charset=utf-8');
 	}
 
 	xml(req: Request, res: Response) {
