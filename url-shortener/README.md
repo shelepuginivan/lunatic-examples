@@ -1,5 +1,11 @@
 # Url Shortener
 
+## Features
+
+- Pug integration
+- Redis
+- Redirects
+
 ## How to run
 
 Start Redis:
