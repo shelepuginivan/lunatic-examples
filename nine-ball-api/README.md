@@ -1,5 +1,7 @@
 # ⑨ API
 
+A funny API with predictions from Cirno.
+
 Thanks to [@Nikilireous](https://github.com/Nikilireous) for the idea and help in development
 
 ## Features

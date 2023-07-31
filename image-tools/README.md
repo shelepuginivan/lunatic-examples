@@ -1,5 +1,7 @@
 # Image Tools
 
+Fullstack application for image optimization and formatting.
+
 ## Features
 
 - Client-Server architecture

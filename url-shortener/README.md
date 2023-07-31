@@ -1,5 +1,7 @@
 # Url Shortener
 
+Simple url shortening application.
+
 ## Features
 
 - Pug integration
