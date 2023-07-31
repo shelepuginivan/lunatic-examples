@@ -10,11 +10,31 @@ export class CirnoServiceImpl implements CirnoService {
 	constructor() {
 		this.answerOptions = {
 			en: {
-				yes: ['Absolutely!'],
-				somewhat: ['Maybe lol'],
-				neutral: ['Idk'],
-				no: ['Nope'],
-				empty: ['']
+				yes: [
+					'I believe so. Now tell everybody about my powers!',
+					'Thats correct. Just like eye am the strongest in Gensokyo!!',
+					'Absolutely! Trust me, I\'m Cirno'
+				],
+				somewhat: [
+					'The answer is blue!',
+					'When you doubt, it\'s because of the fairies',
+					'I think it\'s... like something you should... um, like answer yourself'
+				],
+				neutral: [
+					'This is harder than math. By the way I am good at math. 9 * 9 = 36, see?',
+					'What do you mean? I don\'t understand',
+					'I know the answer. But I won\'t tell you, ha'
+				],
+				no: [
+					'You better go freeze some frogs.',
+					'You are wrong. Quit annoying me!',
+					'Too boring. You really think it can be true?'
+				],
+				empty: [
+					'I don\'t know why you are here with this.',
+					'Ask a question, or I\'ll freeze you!!!',
+					'That\'s disrespectful. Don\'t waste my time!!'
+				]
 			},
 			ru: {
 				yes: [
