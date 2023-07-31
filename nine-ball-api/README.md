@@ -1,6 +1,6 @@
 # ⑨ API
 
-Thanks to @Nikilireous for the idea and help in development
+Thanks to [@Nikilireous](https://github.com/Nikilireous) for the idea and help in development
 
 ## Features
 
