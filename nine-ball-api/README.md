@@ -4,6 +4,12 @@ A funny API with predictions from Cirno.
 
 Thanks to [@Nikilireous](https://github.com/Nikilireous) for the idea and help in development
 
+## Try it out
+
+This project is hosted on [Render.com](https://render.com/) ❤️:
+
+https://nineballapi.onrender.com/api/image?q=do%20you%20like%20math
+
 ## Features
 
 - Many response formats (HTML, XML, JSON, SVG and more)
