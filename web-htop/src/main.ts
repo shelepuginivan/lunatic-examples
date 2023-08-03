@@ -28,6 +28,8 @@ io.on('connection', (socket) => {
 		socket.emit('update', JSON.stringify(processes));
 	}
 
+	sendProcessList();
+
 	const updateInterval = setInterval(sendProcessList, 2000);
 
 	socket.on('disconnect', () => clearInterval(updateInterval));
