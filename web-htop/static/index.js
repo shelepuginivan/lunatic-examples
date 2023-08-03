@@ -5,6 +5,14 @@ const socket = io();
 const processRow = (process) => `<tr>
 	<td>${process.pid}</td>
 	<td>${process.name}</td>
+	<td>
+		<button
+			class="btn btn-danger"
+			onclick="fetch('/kill/${process.pid}', { method: 'POST' })"
+		>
+			KILL!
+		</button>
+	</td>
 </tr>`
 
 socket.on('update', (data) => {
@@ -15,6 +23,7 @@ socket.on('update', (data) => {
 	<tr>
 		<th>pid</th>
 		<th>name</th>
+		<th>action</th>
 	</tr>
 <thead>`
 
