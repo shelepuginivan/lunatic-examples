@@ -1,0 +1,22 @@
+{
+	"name": "web-htop",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc",
+		"start": "node dist/main.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node": "^20.4.6",
+		"typescript": "^5.1.6"
+	},
+	"dependencies": {
+		"@shelepuginivan/lunatic": "^1.1.0",
+		"fkill": "^8.1.1",
+		"ps-list": "^8.1.1",
+		"socket.io": "^4.7.2"
+	}
+}
