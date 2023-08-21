@@ -23,17 +23,17 @@ app
 	.use(bodyParser)
 	.use('/static', serveStatic(join(__dirname, '..', 'static')))
 	.get('/', (_req, res) => res.renderFile(join(__dirname, '..', 'views', 'index.pug')))
-	.get('/:id', async (req, res, next) => {
+	.get('/:id', async (req, res) => {
 		const id = req.params.id;
 
 		if (typeof id !== 'string') {
-			return await res.status(400).json({ message: 'id невалидный' });
+			return await res.status(400).json({ message: 'invalid id' });
 		}
 
 		const originalUrl = await redisClient.get(id);
 
 		if (!originalUrl) {
-			return next();
+			return await res.status(404).json({ message: 'link not found' })
 		}
 
 		await res.status(302).redirect(originalUrl);
