@@ -1,13 +1,14 @@
 doctype html
 html(lang="en")
 	head
+		link(rel="icon" href="/static/favicon.ico")
 		link(rel="preconnect" href="https://fonts.googleapis.com")
 		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin="")
 		link(
 			href="https://fonts.googleapis.com/css2?family=REM:wght@200&family=Raleway:wght@300&display=swap"
 			rel="stylesheet"
 		)
-		link(rel="stylesheet" href="/style.css")
+		link(rel="stylesheet" href="/static/style.css")
 		title Url Shortener
 	body
 		main
@@ -34,4 +35,4 @@ html(lang="en")
 				p(class="result" id="result")
 				button(id="clip-button" class="clip-button") Copy!
 
-		script(src="/index.js")
+		script(src="/static/index.js")

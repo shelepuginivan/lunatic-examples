@@ -21,6 +21,7 @@ const PORT = Number(process.env.PORT) || 8000
 app
 	.renderer(render)
 	.use(bodyParser)
+	.use('/static', serveStatic(join(__dirname, '..', 'static')))
 	.get('/', (_req, res) => res.renderFile(join(__dirname, '..', 'views', 'index.pug')))
 	.get('/:id', async (req, res, next) => {
 		const id = req.params.id;
@@ -56,9 +57,7 @@ app
 				await res.status(400).json({ message: 'URL is not valid' });
 			}
 		}
-
 	})
-	.use('/', serveStatic(join(__dirname, '..', 'static')));
 
 const start = async () => {
 	await redisClient.connect();
