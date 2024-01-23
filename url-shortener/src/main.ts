@@ -63,7 +63,7 @@ const start = async () => {
 	await redisClient.connect();
 	console.log('Redis successfully connected');
 
-	app.listen(PORT);
+	await app.listen(PORT);
 	console.log(`Server started on port ${PORT}...`);
 };
 
